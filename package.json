@@ -1,0 +1,21 @@
+{
+   "name": "Desafio - Mi Repertorio",
+   "version": "1.0.0",
+   "description": "Desafio LATAM Modulo 07 Desafio Evaluado - Mi Repertorio",
+   "main": "app.js",
+   "scripts": {
+      "start": "node app.js",
+      "dev": "nodemon app.js"
+   },
+   "keywords": [
+      "javascript",
+      "css",
+      "html",
+      "express",
+      "pg",
+      "postgreSQL",
+      "pug"
+   ],
+   "author": "Aframuz",
+   "license": "ISC"
+}
