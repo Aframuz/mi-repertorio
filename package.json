@@ -17,5 +17,10 @@
       "pug"
    ],
    "author": "Aframuz",
-   "license": "ISC"
+   "license": "ISC",
+   "dependencies": {
+      "express": "^4.18.1",
+      "pg": "^8.7.3",
+      "pug": "^3.0.2"
+   }
 }
