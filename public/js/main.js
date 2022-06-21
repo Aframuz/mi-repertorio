@@ -1,3 +1,4 @@
+console.log("hola")
 let url = "/cancion"
 let tbody = document.getElementById("cuerpo")
 let cancion = document.getElementById("cancion")
