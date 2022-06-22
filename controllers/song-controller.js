@@ -15,7 +15,7 @@ const getSongs = async (req, res) => {
 const addSong = async (req, res) => {
    const songObj = req.body
 
-   const insertedSong = await db.insertedSong(songObj)
+   const insertedSong = await db.insertSong(songObj)
    res.status(201).json(insertedSong)
 }
 

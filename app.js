@@ -5,6 +5,7 @@
 const express = require("express")
 require("dotenv").config()
 // Local modules
+const songRoute = require("./routes/song-route")
 // Core modules
 const path = require("path")
 
@@ -30,5 +31,7 @@ app.set("view engine", "pug")
 app.get("/", (req, res) => {
    res.render("index")
 })
+
+app.use("/songs", songRoute)
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`))

@@ -9,7 +9,7 @@ const client = require("../config/db.config")
 // Get all songs
 const getSongs = async () => {
    const queryConf = {
-      text: "SELECT * FROM canciones;",
+      text: "SELECT * FROM canciones",
    }
 
    try {
@@ -54,14 +54,14 @@ const updateSong = async (songObj) => {
 const deleteSong = async (songId) => {
    const queryConf = {
       text: "DELETE FROM canciones WHERE id = $1",
-      values: songId,
+      values: [songId],
    }
 
    try {
       const res = await client.query(queryConf)
       return res.rows[0]
    } catch (err) {
-      console.error(`Error deleting song!\n{err}`)
+      console.error(`Error deleting song!\n${err}`)
    }
 }
 
