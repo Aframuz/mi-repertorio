@@ -1,83 +1,82 @@
-console.log("hola")
-let url = "/cancion"
-let tbody = document.getElementById("cuerpo")
-let cancion = document.getElementById("cancion")
-let artista = document.getElementById("artista")
-let tono = document.getElementById("tono")
+const url = "/songs"
 
-let canciones = []
+const tbody = document.getElementById("table-body")
+const songInput = document.getElementById("song")
+const artistInput = document.getElementById("artist")
+const chordInput = document.getElementById("chord")
+
+const songs = []
+
+const getData = async () => {
+   // Get Songs
+   const res = await fetch(url)
+   const songs = await res.json()
+   console.log(songs)
+
+   // Clean table, create fragment
+   tbody.innerHTML = ""
+   const tbodFrag = new DocumentFragment()
+   // Insert Songs
+   songs.forEach((song, i) => {
+      const tr = document.createElement("tr")
+      const trFrag = new DocumentFragment()
+      for (const [key, value] of Object.entries(song)) {
+         const td = document.createElement("td")
+         td.textContent = key === "id" ? i + 1 : value
+         trFrag.appendChild(td)
+      }
+
+      const btnsTd = document.createElement("td")
+      const btnsFrag = new DocumentFragment()
+
+      const editBtn = document.createElement("button")
+      editBtn.classList.add("btn", "btn-warning")
+      editBtn.setAttribute("onclick", `prepareSong(${i}, ${song.id})`)
+      editBtn.textContent = "Editar"
+      btnsFrag.appendChild(editBtn)
+
+      const deleteBtn = document.createElement("button")
+      deleteBtn.classList.add("btn", "btn-danger")
+      deleteBtn.setAttribute("onclick", `deleteSong(${i}, ${song.id})`)
+      deleteBtn.textContent = "Eliminar"
+      btnsFrag.appendChild(deleteBtn)
+
+      btnsTd.appendChild(btnsFrag)
+
+      tr.appendChild(trFrag)
+      tr.appendChild(btnsTd)
+      tbodFrag.appendChild(tr)
+   })
+   tbody.appendChild(tbodFrag)
+
+   // Clear inputs
+   songInput.value = ""
+   artistInput.value = ""
+   chordInput.value = ""
+}
+
 window.onload = getData()
 
-async function getData() {
-   await axios.get(url + "es").then((data) => {
-      canciones = data.data
-      tbody.innerHTML = ""
-      console.log(canciones)
-      canciones.forEach((c, i) => {
-         tbody.innerHTML += `
-        <tr>
-          <td>${i + 1}</td>
-          <td>${c.titulo}</td>
-          <td>${c.artista}</td>
-          <td>${c.tono}</td>
-          <td>
-            <button class="btn btn-warning" onclick="prepararCancion(${i},'${
-            c.id
-         }')">Editar</button>
-            <button class="btn btn-danger" onclick="eliminarCancion(${i},'${
-            c.id
-         }')">Eliminar</button>
-          </td>
-        </tr>
-      `
-      })
-   })
-   cancion.value = ""
-   artista.value = ""
-   tono.value = ""
-}
-
-function nuevaCancion() {
-   cancion
-   artista
-   tono
-   let data = {
-      titulo: cancion.value,
-      artista: artista.value,
-      tono: tono.value,
+const addSong = async () => {
+   const songData = {
+      titulo: songInput.value,
+      artista: artistInput.value,
+      tono: chordInput.value,
    }
-   console.log(data)
-   axios.post(url, data).then(() => getData())
-}
+   const options = {
+      method: "POST",
+      headers: {
+         "Content-Type": "application/json",
+      },
+      body: JSON.stringify(songData),
+   }
 
-function eliminarCancion(i, id) {
-   axios.delete(url + "?id=" + id).then(() => {
-      alert("Canción " + canciones[i].titulo + " eliminada")
+   try {
+      const res = await fetch(url, options)
+      const { id } = await res.json()
+      console.log(`Inserted Song ${id}`)
       getData()
-   })
-}
-
-function prepararCancion(i, id) {
-   cancion.value = canciones[i].titulo
-   artista.value = canciones[i].artista
-   tono.value = canciones[i].tono
-   document
-      .getElementById("editar")
-      .setAttribute("onclick", `editarCancion('${id}')`)
-   document.getElementById("agregar").style.display = "none"
-   document.getElementById("editar").style.display = "block"
-}
-
-function editarCancion(id) {
-   axios
-      .put(url + "/" + id, {
-         titulo: cancion.value,
-         artista: artista.value,
-         tono: tono.value,
-      })
-      .then(() => {
-         getData()
-         document.getElementById("agregar").style.display = "block"
-         document.getElementById("editar").style.display = "none"
-      })
+   } catch (error) {
+      console.log(error)
+   }
 }

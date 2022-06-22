@@ -3,13 +3,13 @@ mixin form-input(id, label, placeholder)
    .form-group.row.mb-3
       label.col-sm-2.col-form-label(for=id)= label
       .col-sm-10
-         input.form-control(id=id type="text" value=placeholder)
+         input.form-control(id=id type="text" placeholder=placeholder)
 
 #add-song 
    h2.pt-3 &#119070; Mi repertorio &#119070;
 
    .container.pt-5.w-50 
-      form
+      div
          +form-input('song', 'Canción:', 'A Dios le pido')
          +form-input('artist', 'Artista:', 'Juanes')
          +form-input('chord', 'Tono:', "Em")
