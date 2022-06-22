@@ -20,9 +20,10 @@ const addSong = async (req, res) => {
 }
 
 const updateSong = async (req, res) => {
-   const songObj = req.body
+   const songId = req.params.id
+   const newSongObj = req.body
 
-   const updatedSong = await db.updateSong(songObj)
+   const updatedSong = await db.updateSong(newSongObj)
    res.status(200).json(updatedSong)
 }
 
