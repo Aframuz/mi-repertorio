@@ -5,13 +5,12 @@ const songInput = document.getElementById("song")
 const artistInput = document.getElementById("artist")
 const chordInput = document.getElementById("chord")
 
-const songs = []
+let songs = []
 
 const getData = async () => {
    // Get Songs
    const res = await fetch(url)
-   const songs = await res.json()
-   console.log(songs)
+   songs = await res.json()
 
    // Clean table, create fragment
    tbody.innerHTML = ""
@@ -31,13 +30,13 @@ const getData = async () => {
 
       const editBtn = document.createElement("button")
       editBtn.classList.add("btn", "btn-warning")
-      editBtn.setAttribute("onclick", `prepareSong(${i}, ${song.id})`)
+      editBtn.setAttribute("onclick", `prepareSong(${song.id})`)
       editBtn.textContent = "Editar"
       btnsFrag.appendChild(editBtn)
 
       const deleteBtn = document.createElement("button")
       deleteBtn.classList.add("btn", "btn-danger")
-      deleteBtn.setAttribute("onclick", `deleteSong(${i}, ${song.id})`)
+      deleteBtn.setAttribute("onclick", `deleteSong(${song.id})`)
       deleteBtn.textContent = "Eliminar"
       btnsFrag.appendChild(deleteBtn)
 
@@ -74,9 +73,66 @@ const addSong = async () => {
    try {
       const res = await fetch(url, options)
       const { id } = await res.json()
-      console.log(`Inserted Song ${id}`)
+      console.log(`Inserted song ${id}`)
       getData()
    } catch (error) {
       console.log(error)
+   }
+}
+
+const deleteSong = async (songId) => {
+   const options = {
+      method: "DELETE",
+      headers: {
+         "Content-Type": "application/json; charset=UTF-8",
+      },
+   }
+
+   try {
+      const res = await fetch(`${url}/${songId}`, options)
+      const { id } = await res.json()
+      console.log(`Deleted song ${id}`)
+      getData()
+   } catch (err) {
+      console.error(`Error deleting song!\n${err}`)
+   }
+}
+
+const prepareSong = (id) => {
+   const songToUpdate = songs.find((song) => song.id === id)
+
+   songInput.value = songToUpdate.titulo
+   artistInput.value = songToUpdate.artista
+   chordInput.value = songToUpdate.tono
+
+   const editBtn = document.getElementById("edit")
+   const addBtn = document.getElementById("add")
+
+   editBtn.setAttribute("onclick", `editSong(${id})`)
+
+   addBtn.style.display = "none"
+}
+
+const editSong = async (songId) => {
+   const songData = {
+      titulo: songInput.value,
+      artista: artistInput.value,
+      tono: chordInput.value,
+   }
+   const options = {
+      method: "PUT",
+      headers: {
+         "Content-Type": "application/json",
+      },
+      body: JSON.stringify(songData),
+   }
+
+   try {
+      const res = await fetch(`${url}/${songId}`, options)
+      const { id } = await res.json()
+      console.log(`Updated song ${id}`)
+      getData()
+   } catch (err) {
+      console.log(`Error updating song!\n${err}`)
    }
 }
