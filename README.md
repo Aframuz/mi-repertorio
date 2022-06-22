@@ -58,5 +58,10 @@ CREATE TABLE canciones (
 
 -  Variable en base de datos se llama _tono_ aunque en frontend renombrada a _acorde_
 -  catching error in mods instead of db.config (see node-postgres docs)
+
+## TODO
+
 -  check a model structure, cab lo smaller!
 -  Sanitize middleware?
+-  song-controller UPDATE cleann
+-  Catch errors in controllers (if id exist/doesnt exist)
