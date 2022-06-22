@@ -20,15 +20,17 @@ const addSong = async (req, res) => {
 }
 
 const updateSong = async (req, res) => {
-   const songId = req.params.id
-   const newSongObj = req.body
+   const newSongObj = {
+      id: req.params.id,
+      ...req.body,
+   }
 
    const updatedSong = await db.updateSong(newSongObj)
    res.status(200).json(updatedSong)
 }
 
 const deleteSong = async (req, res) => {
-   const songId = req.params.id // or body??
+   const songId = req.params.id
 
    const deletedSong = await db.deleteSong(songId)
    res.status(200).json(deletedSong)
