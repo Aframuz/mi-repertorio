@@ -53,7 +53,7 @@ const updateSong = async (songObj) => {
 // Delete a song
 const deleteSong = async (songId) => {
    const queryConf = {
-      text: "DELETE FROM canciones WHERE id = $1",
+      text: "DELETE FROM canciones WHERE id = $1 RETURNING *",
       values: [songId],
    }
 
