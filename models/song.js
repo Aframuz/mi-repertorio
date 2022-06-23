@@ -1,13 +1,15 @@
 /*=============================================
 =               IMPORT MODULES                =
 =============================================*/
+// Local modules
 const client = require("../config/db.config")
 
 /*=============================================
 =                   QUERIES                   =
 =============================================*/
-// Get all songs
+// Get all songs in the DB
 const getSongs = async () => {
+   // Query configuration
    const queryConf = {
       text: "SELECT * FROM canciones",
    }
@@ -22,6 +24,7 @@ const getSongs = async () => {
 
 // Insert a song
 const insertSong = async (songObj) => {
+   // Query configuration
    const queryConf = {
       text: "INSERT INTO canciones(id, titulo, artista, tono) VALUES  (default, $1, $2, $3) RETURNING *",
       values: Object.values(songObj),
@@ -37,6 +40,7 @@ const insertSong = async (songObj) => {
 
 // Update a song
 const updateSong = async (songObj) => {
+   // Query configuration
    const queryConf = {
       text: "UPDATE canciones SET titulo = $2, artista = $3, tono = $4 WHERE id = $1 RETURNING *",
       values: Object.values(songObj),
@@ -52,6 +56,7 @@ const updateSong = async (songObj) => {
 
 // Delete a song
 const deleteSong = async (songId) => {
+   // Query configuration
    const queryConf = {
       text: "DELETE FROM canciones WHERE id = $1 RETURNING *",
       values: [songId],
@@ -65,6 +70,9 @@ const deleteSong = async (songId) => {
    }
 }
 
+/*=============================================
+=                   EXPORTS                   =
+=============================================*/
 module.exports = {
    getSongs,
    insertSong,

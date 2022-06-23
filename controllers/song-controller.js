@@ -63,6 +63,9 @@ const deleteSong = async (req, res) => {
    }
 }
 
+/*=============================================
+=                   EXPORTS                   =
+=============================================*/
 module.exports = {
    getSongs,
    addSong,

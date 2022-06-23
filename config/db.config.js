@@ -1,6 +1,7 @@
 /*=============================================
 =               IMPORT MODULES                =
 =============================================*/
+// 3rd party modules
 const { Pool } = require("pg")
 require("dotenv").config()
 
@@ -26,6 +27,7 @@ pool.on("connect", () => {
 /*=============================================
 =                   METHODS                   =
 =============================================*/
+// General Query Structure
 const query = async (queryConf) => {
    const client = await pool.connect()
    try {
@@ -36,6 +38,9 @@ const query = async (queryConf) => {
    }
 }
 
+/*=============================================
+=                   EXPORTS                   =
+=============================================*/
 module.exports = {
    query,
 }
