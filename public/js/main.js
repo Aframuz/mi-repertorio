@@ -1,7 +1,7 @@
 /*=============================================
 =               IMPORT MODULES                =
 =============================================*/
-import fetchData from "./fetch.js"
+// import fetchData from "./fetch.js"
 /*=============================================
 =              GLOBAL VARIABLES               =
 =============================================*/
@@ -19,7 +19,8 @@ let songs = []
 =============================================*/
 const getData = async () => {
    // Get Songs
-   songs = await fetchData(url, "GET")
+   const res = await fetch(url)
+   songs = await res.json()
 
    // Clean table, create fragment
    tbody.innerHTML = ""

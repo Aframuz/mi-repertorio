@@ -1,2 +1,3 @@
 node_modules
 models/songv2.js
+public/js/fetch.js
