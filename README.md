@@ -62,7 +62,7 @@ CREATE TABLE canciones (
 
 ## TODO
 
--  check a model structure, cab lo smaller!
+-  check a model structure, could be smaller!
 -  Sanitize middleware?
 -  song-controller UPDATE cleann
 -  Catch errors in controllers (if id exist/doesnt exist)
