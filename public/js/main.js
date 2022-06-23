@@ -74,24 +74,23 @@ const addSong = async () => {
       tono: chordInput.value,
    }
 
-   await fetchData(url, "POST", songData)
-   // // Fetch options
-   // const options = {
-   //    method: "POST",
-   //    headers: {
-   //       "Content-Type": "application/json",
-   //    },
-   //    body: JSON.stringify(songData),
-   // }
-   // // Trying to fetch, then load table data
-   // try {
-   //    const res = await fetch(url, options)
-   //    const { id } = await res.json()
-   //    console.log(`Inserted song ${id}`)
-   //    getData()
-   // } catch (error) {
-   //    console.log(error)
-   // }
+   // Fetch options
+   const options = {
+      method: "POST",
+      headers: {
+         "Content-Type": "application/json",
+      },
+      body: JSON.stringify(songData),
+   }
+   // Trying to fetch, then load table data
+   try {
+      const res = await fetch(url, options)
+      const { id } = await res.json()
+      console.log(`Inserted song ${id}`)
+      getData()
+   } catch (error) {
+      console.log(error)
+   }
 }
 
 // Delete a song from the table
