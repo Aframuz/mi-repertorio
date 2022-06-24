@@ -1,4 +1,9 @@
 /*=============================================
+=               IMPORT MODULES                =
+=============================================*/
+import fetchData from "./fetch.js"
+
+/*=============================================
 =              GLOBAL VARIABLES               =
 =============================================*/
 const url = "/songs"
@@ -15,8 +20,7 @@ let songs = []
 =============================================*/
 const getData = async () => {
    // Get Songs
-   const res = await fetch(url)
-   songs = await res.json()
+   songs = await fetchData(url, "GET")
 
    // Clean table, create fragment
    tbody.innerHTML = ""
@@ -75,44 +79,13 @@ const addSong = async () => {
    }
 
    await fetchData(url, "POST", songData)
-   // // Fetch options
-   // const options = {
-   //    method: "POST",
-   //    headers: {
-   //       "Content-Type": "application/json",
-   //    },
-   //    body: JSON.stringify(songData),
-   // }
-   // // Trying to fetch, then load table data
-   // try {
-   //    const res = await fetch(url, options)
-   //    const { id } = await res.json()
-   //    console.log(`Inserted song ${id}`)
-   //    getData()
-   // } catch (error) {
-   //    console.log(error)
-   // }
+   getData()
 }
 
 // Delete a song from the table
 const deleteSong = async (songId) => {
-   // Fetch options
-   const options = {
-      method: "DELETE",
-      headers: {
-         "Content-Type": "application/json; charset=UTF-8",
-      },
-   }
-
-   // Trying to fetch, then load table data
-   try {
-      const res = await fetch(`${url}/${songId}`, options)
-      const { id } = await res.json()
-      console.log(`Deleted song ${id}`)
-      getData()
-   } catch (err) {
-      console.error(`Error deleting song!\n${err}`)
-   }
+   await fetchData(`${url}/${songId}`, "DELETE")
+   getData()
 }
 
 // Copy corresponding data from table to inputs, change button display accordingly
@@ -139,22 +112,5 @@ const editSong = async (songId) => {
       artista: artistInput.value,
       tono: chordInput.value,
    }
-   // Fetch options
-   const options = {
-      method: "PUT",
-      headers: {
-         "Content-Type": "application/json",
-      },
-      body: JSON.stringify(songData),
-   }
-
-   // Trying to fetch, then load table data
-   try {
-      const res = await fetch(`${url}/${songId}`, options)
-      const { id } = await res.json()
-      console.log(`Updated song ${id}`)
-      getData()
-   } catch (err) {
-      console.log(`Error updating song!\n${err}`)
-   }
+   await fetchData(`${url}/${songId}`, "PUT", songData)
 }
