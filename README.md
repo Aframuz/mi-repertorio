@@ -65,13 +65,13 @@ CREATE TABLE canciones (
 
 ### Dónde encontrar cada requerimiento
 
-1. `models/song.js`. [link]()
+1. `models/song.js`. [ruta](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/routes/song-route.js#L25) [controlador](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/controllers/song-controller.js#L22) [inserción](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/models/song.js#L26)
 
-2. `models/song.js`. [link]()
+2. `models/song.js`. [ruta](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/routes/song-route.js#L25) [controlador](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/controllers/song-controller.js#L11) [obtención](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/models/song.js#L11)
 
-3. `models/song.js`. [link]()
+3. `models/song.js`. [ruta](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/routes/song-route.js#L21) [controlador](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/controllers/song-controller.js#L36) [actualización](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/models/song.js#L43)
 
-4. `models/song.js`. [link]()
+4. `models/song.js`. [ruta](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/routes/song-route.js#L22) [controlador](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/controllers/song-controller.js#L53) [eliminación](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/models/song.js#L60)
 
 ## TODO
 
