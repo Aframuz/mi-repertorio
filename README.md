@@ -56,9 +56,22 @@ CREATE TABLE canciones (
 
 ## Notas
 
--  It just works 🤷‍♂️
--  Variable en base de datos se llama _tono_ aunque en frontend renombrada a _acorde_
--  catching error in mods instead of db.config (see node-postgres docs)
+**rutas**
+
+-  GET /canciones => /songs
+-  POST /cancion => /songs
+-  PUT /cancion => /songs/:id
+-  DELETE /cancion => /songs/:id
+
+### Dónde encontrar cada requerimiento
+
+1. `models/song.js`. [link]()
+
+2. `models/song.js`. [link]()
+
+3. `models/song.js`. [link]()
+
+4. `models/song.js`. [link]()
 
 ## TODO
 
