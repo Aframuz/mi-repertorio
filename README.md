@@ -80,3 +80,5 @@ CREATE TABLE canciones (
 -  song-controller UPDATE cleann
 -  Catch errors in controllers (if id exist/doesnt exist)
 -  Cancel button after clikc in prepare
+-  Could merge setInputValues & cleanInputValues
+-  Table buttons Bootstrap classes, find another way to added them
