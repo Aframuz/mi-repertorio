@@ -3,3 +3,7 @@ body {
    background-color: #283593;
    color: white;
 }
+
+.hidden {
+   display: none;
+}

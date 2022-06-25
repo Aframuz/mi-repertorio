@@ -32,6 +32,7 @@ const insertSong = async (songObj) => {
 
    try {
       const res = await client.query(queryConf)
+      console.log("Song added")
       return res.rows[0]
    } catch (err) {
       console.error(`error inserting song!\n${err}`)
@@ -48,6 +49,7 @@ const updateSong = async (songObj) => {
 
    try {
       const res = await client.query(queryConf)
+      console.log("Song updated")
       return res.rows[0]
    } catch (err) {
       console.error(`error updating song!\n${err}`)
@@ -64,6 +66,7 @@ const deleteSong = async (songId) => {
 
    try {
       const res = await client.query(queryConf)
+      console.log("Song deleted")
       return res.rows[0]
    } catch (err) {
       console.error(`Error deleting song!\n${err}`)
