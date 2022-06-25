@@ -24,37 +24,11 @@ const getSongs = async () => {
 // Add a song to the table with the values in input
 const addSong = async () => {
    // Get input values
-<<<<<<< HEAD
-   const songData = {
-      titulo: songInput.value,
-      artista: artistInput.value,
-      tono: chordInput.value,
-   }
-
-   // Fetch options
-   const options = {
-      method: "POST",
-      headers: {
-         "Content-Type": "application/json",
-      },
-      body: JSON.stringify(songData),
-   }
-   // Trying to fetch, then load table data
-   try {
-      const res = await fetch(url, options)
-      const { id } = await res.json()
-      console.log(`Inserted song ${id}`)
-      getData()
-   } catch (error) {
-      console.log(error)
-   }
-=======
    const songData = elements.getInputValues()
    // POST song into DB using fetch
    await fetchData(url, "POST", songData)
    // Front reset
    init()
->>>>>>> modularize-main
 }
 
 // Delete a song from the table
