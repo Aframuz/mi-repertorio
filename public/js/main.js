@@ -116,15 +116,18 @@ const createTableBtn = (type) => {
    const opt = {
       edit: {
          text: "Editar",
+         styles: ["btn-warning"],
          cb: (id) => prepareSong(id),
       },
       delete: {
          text: "Eliminar",
+         styles: ["btn-danger"],
          cb: (id) => deleteSong(id),
       },
    }
 
    btn.textContent = opt[type].text
+   btn.classList.add("btn", "mx-1", ...opt[type].styles)
    btn.addEventListener("click", (e) => {
       const id = e.target.parentNode.parentNode.dataset.id
       opt[type].cb(id)
