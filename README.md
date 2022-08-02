@@ -1,6 +1,6 @@
 # Desafío - Mi Repertorio
 
-## Capítulos
+## Habilidades a Evaluar
 
 El desafío está evaluado en el siguiente capítulo de la lectura:
 
@@ -52,6 +52,16 @@ CREATE TABLE canciones (
 
 4. Crear una ruta **DELETE /cancion** que reciba por queryString el id de una canción y realiza una consulta SQL a través de una función asíncrona para eliminarla de la base de datos.
 
+### Dónde encontrar cada requerimiento
+
+1. `models/song.js`. [ruta](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/routes/song-route.js#L25) [controlador](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/controllers/song-controller.js#L22) [inserción](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/models/song.js#L26)
+
+2. `models/song.js`. [ruta](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/routes/song-route.js#L25) [controlador](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/controllers/song-controller.js#L11) [obtención](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/models/song.js#L11)
+
+3. `models/song.js`. [ruta](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/routes/song-route.js#L21) [controlador](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/controllers/song-controller.js#L36) [actualización](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/models/song.js#L43)
+
+4. `models/song.js`. [ruta](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/routes/song-route.js#L22) [controlador](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/controllers/song-controller.js#L53) [eliminación](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/models/song.js#L60)
+
 ---
 
 ## Notas
@@ -63,16 +73,6 @@ CREATE TABLE canciones (
 -  PUT /cancion => /songs/:id
 -  DELETE /cancion => /songs/:id
 
-### Dónde encontrar cada requerimiento
-
-1. `models/song.js`. [ruta](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/routes/song-route.js#L25) [controlador](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/controllers/song-controller.js#L22) [inserción](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/models/song.js#L26)
-
-2. `models/song.js`. [ruta](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/routes/song-route.js#L25) [controlador](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/controllers/song-controller.js#L11) [obtención](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/models/song.js#L11)
-
-3. `models/song.js`. [ruta](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/routes/song-route.js#L21) [controlador](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/controllers/song-controller.js#L36) [actualización](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/models/song.js#L43)
-
-4. `models/song.js`. [ruta](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/routes/song-route.js#L22) [controlador](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/controllers/song-controller.js#L53) [eliminación](https://github.com/Aframuz/mi-repertorio/blob/f9e77d18af372df0197076cefb91691e1032ec87/models/song.js#L60)
-
 ## TODO
 
 -  check a model structure, could be smaller!
@@ -82,3 +82,4 @@ CREATE TABLE canciones (
 -  Cancel button after clikc in prepare
 -  Could merge setInputValues & cleanInputValues
 -  Table buttons Bootstrap classes, find another way to added them
+-  404 route

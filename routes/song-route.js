@@ -16,10 +16,7 @@ const router = express.Router()
 =                   ROUTES                    =
 =============================================*/
 // routes for updating and deleting
-router
-   .route("/:id")
-   .put(songController.updateSong)
-   .delete(songController.deleteSong)
+router.route("/:id").put(songController.updateSong).delete(songController.deleteSong)
 
 // routes for inserting and getting
 router.route("/").post(songController.addSong).get(songController.getSongs)
